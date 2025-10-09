@@ -1,14 +1,14 @@
 package main
 
+/* SpaceWeek Day 1:Stellar Classification */
+
 import "fmt"
 
-/* SpaceWeek Day 1:Stellar Classification */
 func main() {
 
 	fmt.Printf("Temp:\t5778  Star Class: %s\n", classification(5778))
 	fmt.Printf("Temp:\t2400  Star Class: %s\n", classification(2400))
 	fmt.Printf("Temp:\t9999  Star Class: %s\n", classification(9999))
-
 }
 
 // classification Given the surface temperature of a star in Kelvin(K),return its stellar classication
