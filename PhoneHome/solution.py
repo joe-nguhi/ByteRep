@@ -15,3 +15,4 @@ def send_message(route):
 print(send_message([300_000, 300_000]))
 print(send_message([384_400, 384_400]))
 print(send_message([1_000_000,500_000_000,1_000_000]))
+print(send_message([54_600_000, 54_600_400]))
