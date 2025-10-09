@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -11,12 +12,12 @@ const (
 )
 
 func main() {
-	r := []int{384400, 384400}
-	fmt.Printf("%v-\t%s\n", r, sendMessage(r))
+	r := []int{54600000, 54600400}
+	result := sendMessage(r)
+	fmt.Printf("%v-\t%s\n", r, result)
 }
 
 func sendMessage(route []int) string {
-
 	distance := 0
 
 	for _, d := range route {
@@ -25,20 +26,17 @@ func sendMessage(route []int) string {
 
 	nsats := len(route) - 1
 
-	// Calculate the result with full precision first
 	result := float64(distance)/SPEED + (SATDELAY * float64(nsats))
 
-	// Print the raw result and rounded result for debugging
-	fmt.Printf("Raw result: %.10f, Rounded: %.4f\n", result, result)
+	// Round to 4 decimal places properly
+	rounded := math.Round(result*10000) / 10000
 
-	// Format with exactly 4 decimal places but remove trailing zeros
-	s := fmt.Sprintf("%.4f", result)
+	s := fmt.Sprintf("%.4f", rounded)
 
-	// Remove trailing zeros but keep at least one digit after decimal point if needed
-	if strings.Contains(s, ".") {
-		s = strings.TrimRight(s, "0")
-		s = strings.TrimRight(s, ".")
-	}
+	// Remove trailing zeros but keep at least one digit before decimal point
+
+	s = strings.TrimRight(s, "0") // Remove trailing zeros
+	s = strings.TrimRight(s, ".") // Remove trailing decimal point if present
 
 	return s
 }
