@@ -1,3 +1,5 @@
+# SpaceWeekDay3 - Phone Home 
+# Determine the time it takes to send a message from your space ship to your planet.
 SPEED_OF_LIGHT = 300_000
 SAT_DELAY = 0.5
 def send_message(route):
