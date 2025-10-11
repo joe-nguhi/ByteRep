@@ -47,12 +47,12 @@ func getAverageReading(readings string) float64 {
 }
 
 func fromBase36(r rune) (int, error) {
-	if int(r) < 58 && int(r) > 47 {
-		return int(r) - 48, nil
+	if int(r) <= int('9') && int(r) >= int('0') {
+		return int(r) - int('0'), nil
 	}
 
-	if int(r) > 64 && int(r) < 91 {
-		return int(r) - 55, nil
+	if int(r) >= int('A') && int(r) <= int('Z') {
+		return int(r) - int('A') + 10, nil
 	}
 
 	return 0, errors.New("not a valid base 36 character")
