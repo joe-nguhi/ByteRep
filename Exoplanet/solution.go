@@ -2,13 +2,14 @@ package main
 
 import (
 	"errors"
+	"fmt"
 )
 
 const threshold = 0.8
 
 func main() {
-	//fmt.Printf("Has Expo Planet: %t\n", hasExpoPlanet("665544554"))
-	//fmt.Printf("Has Expo Planet: %t\n", hasExpoPlanet("FGFFCFFGG"))
+	fmt.Printf("Has Expo Planet: %t\n", hasExpoPlanet("665544554"))
+	fmt.Printf("Has Expo Planet: %t\n", hasExpoPlanet("FGFFCFFGG"))
 }
 
 func hasExpoPlanet(readings string) bool {
@@ -21,7 +22,7 @@ func hasExpoPlanet(readings string) bool {
 			continue
 		}
 
-		if float64(r) <= (float64(average) * threshold) {
+		if float64(r) <= (average * threshold) {
 			return true
 		}
 	}
@@ -29,8 +30,8 @@ func hasExpoPlanet(readings string) bool {
 	return false
 }
 
-func getAverageReading(readings string) int {
-	sum := 0
+func getAverageReading(readings string) float64 {
+	sum := 0.0
 
 	for _, reading := range readings {
 		r, err := fromBase36(reading)
@@ -39,10 +40,10 @@ func getAverageReading(readings string) int {
 			continue
 		}
 
-		sum += r
+		sum += float64(r)
 	}
 
-	return sum / len(readings)
+	return sum / float64(len(readings))
 }
 
 func fromBase36(r rune) (int, error) {
