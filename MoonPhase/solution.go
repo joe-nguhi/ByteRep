@@ -1,3 +1,8 @@
+/*
+Space Week Day 6: Moon Phase
+Problem Statement: Given a date, determine the phase of the moon.
+*/
+
 package main
 
 import (
