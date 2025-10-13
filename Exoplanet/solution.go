@@ -1,3 +1,7 @@
+/*
+Space Week Day 2: Exoplanet Search
+Luminosity readings only comprise of characters 0-9 and A-Z that correspond to levels 0-35
+*/
 package main
 
 import (
@@ -12,6 +16,7 @@ func main() {
 	fmt.Printf("Has Expo Planet: %t\n", hasExpoPlanet("FGFFCFFGG"))
 }
 
+// hasExpoPlanet returns true if any luminosity reading is below the threshold
 func hasExpoPlanet(readings string) bool {
 	average := getAverageReading(readings)
 

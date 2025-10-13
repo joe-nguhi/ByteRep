@@ -1,6 +1,9 @@
 package main
 
-/* SpaceWeek Day 1:Stellar Classification */
+/*
+SpaceWeek Day 1: Stellar Classification
+Problem Statement: Given the surface temperature of a star in Kelvin(K),return its stellar classification
+*/
 
 import "fmt"
 
@@ -11,7 +14,6 @@ func main() {
 	fmt.Printf("Temp:\t9999  Star Class: %s\n", classification(9999))
 }
 
-// classification Given the surface temperature of a star in Kelvin(K),return its stellar classication
 func classification(temperature int) string {
 	switch {
 	case temperature >= 30000:

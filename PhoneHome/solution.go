@@ -1,3 +1,8 @@
+/*
+Space Week Day 3: Phone Home
+Problem Statement: Given a communication route between your spaceship,
+a series of satellites and your home planet, calculate the time it takes to send a message.
+*/
 package main
 
 import (

@@ -1,3 +1,7 @@
+/*
+Space Week Day 4: Landing Spot
+Problem Statement: Given a matrix of integers, find the landing spot with the lowest sum of neighbors.
+*/
 package main
 
 import "fmt"
