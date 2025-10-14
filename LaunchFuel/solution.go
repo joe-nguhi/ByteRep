@@ -14,7 +14,8 @@ import (
 const WeightFuelRatio float64 = 1.0 / 5.0
 
 func main() {
-	fmt.Printf("Fuel Required: %.2f\n", launchFuel(243))
+	//fmt.Printf("Fuel Required: %.2f\n", launchFuel(243))
+	fmt.Printf("Fuel Required: %.2f\n", launchFuelLoop(243))
 }
 
 func launchFuel(payload float64) float64 {
@@ -43,4 +44,18 @@ func launchFuel(payload float64) float64 {
 func roundTo(n float64, places int) float64 {
 	factor := math.Pow(10, float64(places))
 	return math.Round(n*factor) / factor
+}
+
+func launchFuelLoop(payload float64) float64 {
+	fuel := payload * WeightFuelRatio
+	diff := fuel
+
+	for diff > (1.0 / WeightFuelRatio) {
+		additionalFuel := diff * WeightFuelRatio
+		fuel += additionalFuel
+		diff = additionalFuel
+	}
+
+	tF := fuel + (diff * WeightFuelRatio)
+	return roundTo(tF, 1)
 }
