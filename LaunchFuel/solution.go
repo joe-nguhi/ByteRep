@@ -14,7 +14,7 @@ import (
 const WeightFuelRatio float64 = 1.0 / 5.0
 
 func main() {
-	//fmt.Printf("Fuel Required: %.2f\n", launchFuel(243))
+	fmt.Printf("Fuel Required: %.2f\n", launchFuel(243))
 	fmt.Printf("Fuel Required: %.2f\n", launchFuelLoop(243))
 }
 
@@ -28,12 +28,8 @@ func launchFuel(payload float64) float64 {
 		}
 
 		fuel := payload * WeightFuelRatio
-		newPayload := payload + fuel
-		diff := newPayload - payload
-
-		result := fuel + calculate(diff)
-
-		return result
+		diff := fuel
+		return fuel + calculate(diff)
 	}
 
 	result := calculate(payload)

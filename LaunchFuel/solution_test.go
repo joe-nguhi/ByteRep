@@ -61,7 +61,7 @@ func TestLaunchFuelLoop(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		if result := launchFuel(test.input); result != test.want {
+		if result := launchFuelLoop(test.input); result != test.want {
 			t.Errorf("launchFuel(%.2f) = %f, want %.1f", test.input, result, test.want)
 		}
 	}
